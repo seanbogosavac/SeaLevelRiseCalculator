@@ -1,9 +1,10 @@
 # func.py
 # This file contains all the functions the sealevel.py and dike.py script files are based on.
 
-import src.data as data
+import src.data as dt
 
 
+## Fuctions used in both contexts
 # Since the polynomials are not meant to use a year, but an integer refering to the year, this function make the conversion:
 def yearToCoeff(y):
     return int(0.25*y-499)
@@ -14,21 +15,21 @@ def levelRise(scenario, year):
     glac = yearToCoeff(year + 4)
     ther = yearToCoeff(year + 15)
     if scenario == "26min":
-        rise = data.thermExp26(ther) * 0.10 + 0.01 * data.glac26min(glac)
+        rise = dt.thermExp26(ther) * 0.10 + 0.01 * dt.glac26min(glac)
     elif scenario == "26max":
-        rise = data.thermExp26(ther) * 0.12 + 0.01 * data.glac26max(glac)
+        rise = dt.thermExp26(ther) * 0.12 + 0.01 * dt.glac26max(glac)
     elif scenario == "45min":
-        rise = data.thermExp45(ther) * 0.10 + 0.01 * data.glac45min(glac)
+        rise = dt.thermExp45(ther) * 0.10 + 0.01 * dt.glac45min(glac)
     elif scenario == "45max":
-        rise = data.thermExp45(ther) * 0.12 + 0.01 * data.glac45max(glac)
+        rise = dt.thermExp45(ther) * 0.12 + 0.01 * dt.glac45max(glac)
     elif scenario == "60min":
-        rise = data.thermExp60(ther) * 0.10 + 0.01 * data.glac60min(glac)
+        rise = dt.thermExp60(ther) * 0.10 + 0.01 * dt.glac60min(glac)
     elif scenario == "60max":
-        rise = data.thermExp60(ther) * 0.12 + 0.01 * data.glac60max(glac)
+        rise = dt.thermExp60(ther) * 0.12 + 0.01 * dt.glac60max(glac)
     elif scenario == "85min":
-        rise = data.thermExp85(ther) * 0.10 + 0.01 * data.glac85min(glac)
+        rise = dt.thermExp85(ther) * 0.10 + 0.01 * dt.glac85min(glac)
     elif scenario == "85max":
-        rise = data.thermExp85(ther) * 0.12 + 0.01 * data.glac85max(glac)
+        rise = dt.thermExp85(ther) * 0.12 + 0.01 * dt.glac85max(glac)
     return rise
 
 
@@ -45,6 +46,8 @@ def applyScenario(dataset, scenario, year):
     return dataset
 
 
-# Returns True if the pixel on given coordinates flooded
+
+## Functions used to replace long if statements
+# Returns True if the pixel on given coordinates is flooded
 def isFlooded(dataset, rise, x, y):
     return dataset[x][y] != -99999.0 and dataset[x][y] <= rise and (dataset[x+1][y] < 0 or dataset[x][y+1] < 0 or dataset[x-1][y] < 0 or dataset[x][y-1] < 0 or dataset[x+1][y+1] < 0 or dataset[x+1][y-1] < 0 or dataset[x-1][y+1] < 0 or dataset[x-1][y-1] < 0)

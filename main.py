@@ -4,7 +4,7 @@
 import sys
 
 import src.sealevel as sl
-#import src.digue
+
 
 args = sys.argv
 
@@ -18,10 +18,11 @@ if len(args) > 1:
         print("\n\nSea Level Rise Calculator -- Help page\n")
         print("usage: python3 main.py [-sealevel | -dike] [dataset] [scenario] [arg] ...\n")
         print("Options and arguments:")
-        print("-sealevel (--sl)   : Computes a map of the specified island after the specified scenario")
-        print("-focus (--f)       : Flaten the highest altitude to enable a greater range of values for the lower altitudes")
-        print("-nocolorbar (--nc) : Does not show the colorbar on the final map (!Enabled and can't disable when choosing all scenarios!)")
-        print("-year (--y)        : Using -year=xxxx shows the result of the simulation on year xxxx (!Must be after 2000!)\n")
+        print("-sealevel    (--sl): Computes a map of the specified island after the specified scenario")
+        print("-dike        (--dk):")
+        print("-focus        (--f): Flaten the highest altitude to enable a greater range of values for the lower altitudes")
+        print("-nocolorbar  (--nc): Does not show the colorbar on the final map (!Enabled and can't disable when choosing all scenarios!)")
+        print("-year         (--y): Using -year=xxxx shows the result of the simulation on year xxxx (!Must be after 2000!)\n")
         print("Datasets avaliables (!Only for -sealevel!):")
         print("- SP               : Uses the St-Pierre island dataset")
         print("- M                : Uses the Miquelon island dataset")
@@ -47,7 +48,9 @@ if len(args) > 1:
             if "-year=" in arg or "--y=" in arg: year = int(arg.split('=')[1])
         sl.seaLevel(dataset, scenario, year, focus, colorbar)
 
-
+    
+    else: 
+        sys.exit("\n\nError! First argument invalid\n\n")
 
 
 else:
