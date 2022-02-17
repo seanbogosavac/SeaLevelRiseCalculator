@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Sea Level Rise Calculator" Height="860" Width="1230">
+        Title="Sea Level Rise Calculator" Height="720" Width="1050">
 
     <Grid>
         <Label Content="Sea Level Rise Calculator" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center"/>
@@ -17,7 +17,7 @@
         </ComboBox>
 
         <Label Content="Scenario used :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0"/>
-        <ComboBox x:Name="Scenario" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="180">
+        <ComboBox x:Name="Scenario" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="ScenarioSelectionChanged">
             <ComboBoxItem Content="RCP 2.6 (Optimistic)" Name="rcp26min" IsSelected="True"/>
             <ComboBoxItem Content="RCP 2.6 (Pessimistic)" Name="rcp26max"/>
             <ComboBoxItem Content="RCP 4.5 (Optimistic)" Name="rcp45min"/>
@@ -26,6 +26,7 @@
             <ComboBoxItem Content="RCP 6.0 (Pessimistic)" Name="rcp60max"/>
             <ComboBoxItem Content="RCP 8.5 (Optimistic)" Name="rcp85min"/>
             <ComboBoxItem Content="RCP 8.5 (Pessimistic)" Name="rcp85max"/>
+            <ComboBoxItem Content="All scenarios" Name="rcpall"/>
         </ComboBox>
 
         <CheckBox x:Name="Focus" Content="Focus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,200,0,0"/>
@@ -37,8 +38,8 @@
             <Slider x:Name="slYear" Minimum="2000" Maximum="2300"  TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" VerticalAlignment="Top" Width="140" ValueChanged="Slider_ValueChanged"/>
         </DockPanel>
 
-        <Button x:Name="Generate" Content="Generate" Click="clickedGenerate" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="180" Height="60"/>
+        <Button x:Name="Generate" Content="Generate" Click="ClickedGenerate" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="180" Height="60"/>
 
-        <Image x:Name="Result" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="800" Margin="0,0,10,10" Width="1000" Source="/basic.png"/>
+        <Image x:Name="Result" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="660" Margin="0,0,10,10" Width="825" Source="/basic.png"/>
     </Grid>
 </Window>

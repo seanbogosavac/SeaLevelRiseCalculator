@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>output.ico</ApplicationIcon>
+    <ApplicationIcon>SeaLevelRise.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -102,6 +102,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="output.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SeaLevelRise.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

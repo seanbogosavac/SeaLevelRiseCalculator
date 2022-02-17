@@ -39,15 +39,15 @@ def seaLevel(dataset, scenario, year, focus, colorbar):
     if scenario == "all":
         print("Computing for all IPCC scenarios")
         maps = [np.copy(map) for i in range(9)]
-        maps[1] = fc.applyScenario(maps[1], "26min")
-        maps[2] = fc.applyScenario(maps[2], "26max")
-        maps[3] = fc.applyScenario(maps[3], "45min")
-        maps[4] = fc.applyScenario(maps[4], "45max")
-        maps[5] = fc.applyScenario(maps[5], "60min")
-        maps[6] = fc.applyScenario(maps[6], "60max")
-        maps[7] = fc.applyScenario(maps[7], "85min")
-        maps[8] = fc.applyScenario(maps[8], "85max")
-        dp.displayAll(maps, focus, colorbar)
+        maps[1] = fc.applyScenario(maps[1], "26min", year)
+        maps[2] = fc.applyScenario(maps[2], "26max", year)
+        maps[3] = fc.applyScenario(maps[3], "45min", year)
+        maps[4] = fc.applyScenario(maps[4], "45max", year)
+        maps[5] = fc.applyScenario(maps[5], "60min", year)
+        maps[6] = fc.applyScenario(maps[6], "60max", year)
+        maps[7] = fc.applyScenario(maps[7], "85min", year)
+        maps[8] = fc.applyScenario(maps[8], "85max", year)
+        dp.displayAll(maps, focus)
 
     elif scenario == "26min":
         print("Computing for the optimistic RCP 2.6 scenario")

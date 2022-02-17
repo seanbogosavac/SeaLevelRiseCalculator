@@ -12,7 +12,8 @@ namespace SeaLevelRise
     /// </summary>
     public partial class MainWindow : Window
     {
-        String assetsFolder = "../../../../assets/";
+        const String assetsFolder = "../../../../assets/";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -20,18 +21,30 @@ namespace SeaLevelRise
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            double year = slYear.Value;
+            _ = slYear.Value;
         }
 
-        private void clickedGenerate(object sender, RoutedEventArgs e)
+        private void ScenarioSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if (Scenario.SelectedItem == rcpall) ((CheckBox)Colorbar).IsEnabled = false;
+            //else ((CheckBox)Colorbar).IsEnabled = false;
+        }
+
+        private void ClickedGenerate(object sender, RoutedEventArgs e)
         {
 
             Result.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(assetsFolder + "waiting.png");
 
+            /*
             if (File.Exists("../../../../output.png"))
             {
+                if (Result.Source == (ImageSource)new ImageSourceConverter().ConvertFrom("../../../../output.png"))
+                {
+                    Result.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(assetsFolder + "waiting.png");
+                }
                 File.Delete("../../../../output.png");
             }
+            */
 
             String focus = "";
             String colorbar = "";
@@ -50,31 +63,22 @@ namespace SeaLevelRise
             String year = " --y=" + slYear.Value.ToString();
 
             String command = "/C cd ../../../../script/ && python3 main.py --sl " + dataset + scenario + focus + colorbar + year;
+                       
 
-            
-            /*
-             * Displays the console for debugging
-            ProcessStartInfo cmdsi = new ProcessStartInfo("cmd.exe");
-            cmdsi.Arguments = command;
-            Process cmd = Process.Start(cmdsi);
-            cmd.WaitForExit();
-            */
-
-            
             System.Diagnostics.Process process = new System.Diagnostics.Process();
-            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = command;
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                FileName = "cmd.exe",
+                Arguments = command
+            };
             process.StartInfo = startInfo;
             process.Start();
             process.WaitForExit();
             
 
             Result.Source = (ImageSource)new ImageSourceConverter().ConvertFrom("../../../../output.png");
+            Generate.IsEnabled = false;
         }
     }
 }
-
-
-
