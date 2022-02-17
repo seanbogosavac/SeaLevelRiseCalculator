@@ -2,6 +2,13 @@
 # This file contains the function related to the process of computing sea level rise.
 
 import sys
+import os
+try:
+  import numpy as np
+  from numpy.polynomial import Polynomial
+except ImportError:
+  print("Trying to Install required module: numpy\n")
+  os.system('python -m pip install numpy')
 import numpy as np
 
 import src.display as dp

@@ -5,6 +5,19 @@ import sys
 
 import src.sealevel as sl
 
+import os
+try:
+  import numpy
+except ImportError:
+  print("Trying to Install required module: numpy\n")
+  os.system('python -m pip install numpy')
+try:
+  import matplotlib
+except ImportError:
+  print("Trying to Install required module: matplotlib\n")
+  os.system('python -m pip install matplotlib')
+
+
 
 args = sys.argv
 

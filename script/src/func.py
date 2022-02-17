@@ -35,9 +35,10 @@ def levelRise(scenario, year):
 
 # Applies a specific IPCC scenario to a dataset
 def applyScenario(dataset, scenario, year):
-    print("Starting computing scenario")
+    print("Starting computing scenario" + scenario)
     rise = levelRise(scenario, year)
     for j in range(200):
+        print(j)
         for x in range(1,len(dataset)-1):
             for y in range(1,len(dataset[0])-1):
                 if isFlooded(dataset, rise, x, y):

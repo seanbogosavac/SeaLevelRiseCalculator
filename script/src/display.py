@@ -1,7 +1,19 @@
 # display.py
 # This file contains all functions related to the output of the program.
 
+import os
+try:
+  import numpy as np
+except ImportError:
+  print("Trying to Install required module: numpy\n")
+  os.system('python -m pip install numpy')
 import numpy as np
+try:
+  import matplotlib.pyplot as plt
+  import matplotlib.colors as clr
+except ImportError:
+  print("Trying to Install required module: matplotlib\n")
+  os.system('python -m pip install matplotlib')
 import matplotlib.pyplot as plt
 import matplotlib.colors as clr
 
@@ -19,7 +31,7 @@ def display(dataset, focus, colorbar):
     plt.imshow(X,cmap="terrain")
     plt.axis("off")
     if colorbar: plt.colorbar()
-    plt.show()
+    plt.savefig("../output.png")
 
 
 #Affichage de tous les scénarios à une année donnée

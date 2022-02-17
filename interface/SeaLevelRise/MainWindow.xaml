@@ -1,0 +1,44 @@
+﻿<Window x:Class="SeaLevelRise.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Sea Level Rise Calculator" Height="860" Width="1230">
+
+    <Grid>
+        <Label Content="Sea Level Rise Calculator" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center"/>
+
+        <Label Content="Dataset used :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,70,0,0" Height="30"/>
+        <ComboBox x:Name="Dataset" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="180" Text="Dataset">
+            <ComboBoxItem Content="Whole Archipelago" Name="all" IsSelected="True"/>
+            <ComboBoxItem Content="St-Pierre Island" Name="SP"/>
+            <ComboBoxItem Content="Miquelon Island" Name="M"/>
+        </ComboBox>
+
+        <Label Content="Scenario used :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0"/>
+        <ComboBox x:Name="Scenario" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="180">
+            <ComboBoxItem Content="RCP 2.6 (Optimistic)" Name="rcp26min" IsSelected="True"/>
+            <ComboBoxItem Content="RCP 2.6 (Pessimistic)" Name="rcp26max"/>
+            <ComboBoxItem Content="RCP 4.5 (Optimistic)" Name="rcp45min"/>
+            <ComboBoxItem Content="RCP 4.5 (Pessimistic)" Name="rcp45max"/>
+            <ComboBoxItem Content="RCP 6.0 (Optimistic)" Name="rcp60min"/>
+            <ComboBoxItem Content="RCP 6.0 (Pessimistic)" Name="rcp60max"/>
+            <ComboBoxItem Content="RCP 8.5 (Optimistic)" Name="rcp85min"/>
+            <ComboBoxItem Content="RCP 8.5 (Pessimistic)" Name="rcp85max"/>
+        </ComboBox>
+
+        <CheckBox x:Name="Focus" Content="Focus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,200,0,0"/>
+        <CheckBox x:Name="Colorbar" Content="Colorbar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="100,200,0,0" IsChecked="True"/>
+
+        <Label Content="Year :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,230,0,0" Height="30"/>
+        <DockPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,260,0,80" Width="180">
+            <TextBox Text="{Binding ElementName=slYear, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="30" />
+            <Slider x:Name="slYear" Minimum="2000" Maximum="2300"  TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" VerticalAlignment="Top" Width="140" ValueChanged="Slider_ValueChanged"/>
+        </DockPanel>
+
+        <Button x:Name="Generate" Content="Generate" Click="clickedGenerate" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="180" Height="60"/>
+
+        <Image x:Name="Result" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="800" Margin="0,0,10,10" Width="1000" Source="/basic.png"/>
+    </Grid>
+</Window>
