@@ -5,13 +5,34 @@ A French version of this readme can be found [here](https://github.com/seanbogos
 This project was realised for my Assisted Personnal Initiative Project (TIPE), as part of the French Engineering School Entrance Process in 2021.
 
 ## Table of contents
+* [How to run](#how-to-run)
 * [Creating the equations](#creating-the-equations)
 * [Building the app](#building-the-map)
 * [Computing the sea rise maps](#computing-the-sea-rise-maps)
 * [Limits of the model](#limits-of-the-model)
-* [How to run](#how-to-run)
 * [Extras](#extras)
 * [Bibliography](#bibliography)
+
+## How to run
+
+The compiled program is available for download [here](https://github.com/seanbogosavac/SeaLevelRiseCalculator/releases).
+Once downloaded, you have two ways to run it.
+
+### Interface (Windows only)
+Running the executable will prompt you with an interface that you can use to compute the sea level rise maps.
+
+![screenshot of the UI]()
+
+Warning : this interface comes with a few known bugs, but I do not really have the time to fix them for now.
+
+### CLI
+You can also run directly the python script by going into the project folder and running
+```bash
+cd script
+python3 main.py
+```
+
+Note : running ```python3 main.py -help``` will prompt you with the different commands.
 
 ## Creating the equations
 
@@ -71,27 +92,6 @@ This model is heavily simplified and a lot of small climate effects have not bee
 
 For instance, the sea level change is different depending on the lattitude, an effect that has not been taken into account, despite the island being at a high lattitude (the Saint-Pierre-et-Miquelon island is located near the east canadian coast).
 ![Sea Level Change Map](readme/SLCmap.jpg)
-
-## How to run
-
-The compiled program is available for download [here](https://github.com/seanbogosavac/SeaLevelRiseCalculator/releases).
-Once downloaded, you have two ways to run it.
-
-### Interface (Windows only)
-Running the executable will prompt you with an interface that you can use to compute the sea level rise maps.
-
-![screenshot of the UI]()
-
-Warning : this interface comes with a few known bugs, but I do not really have the time to fix them for now.
-
-### CLI
-You can also run directly the python script by going into the project folder and running
-```bash
-cd script
-python3 main.py
-```
-
-Note : running ```python3 main.py -help``` will prompt you with the different commands.
 
 ## Extras
 
