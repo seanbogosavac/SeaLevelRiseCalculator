@@ -21,7 +21,7 @@ Once downloaded, you have two ways to run it.
 ### Interface (Windows only)
 Running the executable will prompt you with an interface that you can use to compute the sea level rise maps.
 
-![screenshot of the UI]()
+![screenshot of the UI](readme/windowsUI.png)
 
 Warning : this interface comes with a few known bugs, but I do not really have the time to fix them for now.
 
