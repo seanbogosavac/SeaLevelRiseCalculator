@@ -1,13 +1,13 @@
 # Sea Level Rise Calculator
 
-A French version of this readme can be found [here](https://github.com/seanbogosavac/SeaLevelRiseCalculator/blob/main/README_FR.md).
+Une version française du readme est disponible [ici](https://github.com/seanbogosavac/SeaLevelRiseCalculator/blob/main/README_FR.md).
 
 This project was realised for my Assisted Personnal Initiative Project (TIPE), as part of the French Engineering School Entrance Process in 2021.
 
 ## Table of contents
 * [How to run](#how-to-run)
 * [Creating the equations](#creating-the-equations)
-* [Building the app](#building-the-map)
+* [Building the map](#building-the-map)
 * [Computing the sea rise maps](#computing-the-sea-rise-maps)
 * [Limits of the model](#limits-of-the-model)
 * [Extras](#extras)
