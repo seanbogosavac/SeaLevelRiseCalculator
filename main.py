@@ -5,10 +5,7 @@ from numpy.polynomial import Polynomial
 import math
 import matplotlib.pyplot as plt
 import matplotlib.colors as clr
-import os
 
-##Initialisation
-os.chdir("C:/Users/bogos/quiCk aCCess/Cours/Python")
 
 #Extraction des données
 dataset1 = np.loadtxt("data/BDALTIV2_25M_SPM_0525_5200_MNT_RGSPM06U21_STPM50.asc",skiprows=6)
@@ -138,3 +135,7 @@ def affichageScenarios(annee, Dataset=CroppedData, interet=False):
     plt.axis('off')
     plt.title('Vue acutelle')
     plt.show()
+
+
+data = applicationScenario(2100, CroppedData)
+affichage(data)
